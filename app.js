@@ -2,33 +2,36 @@
 Vue.component('password', {
   template: `
   <div>
-    <div class="">
-      <label for="password" class="form-label">パスワード</label>
-      <div class="form-group">
-        <input
-          id="password"
-          :type="(aftertype === 'text') ? 'password' : 'text'"
-          class="form-control js-password"
-          data-message="note-1"
-          data-toggle="button-1"
-        />
-        <button class="button" id="button-1" @click="passClick">
-          toggle visibillity
-        </button>
-      </div>
-      <p class="form-note" id="note-1">入力してください</p>
+    <label for="password" class="form-label">パスワード</label>
+    <div class="form-group">
+      <input
+        id="password"
+        :type="currentType === password"
+        class="form-control js-password"
+        data-message="note-1"
+        data-toggle="button-1"
+      />
+      <button class="button" id="button-1" @click="passClick">
+        toggle visibillity
+      </button>
     </div>
+    <p class="form-note" id="note-1">入力してください</p>
   </div>
   `,
 
-  props: [
-    'aftertype',
-    // 'val'
-  ],
+  data: function() {
+    return {
+      currentType: 'password'
+    }
+  },
+
+  // props: [
+  //   'currentType',
+  // ],
 
   methods: {
     passClick() {
-      this.$emit('pass-one');
+      this.currentType = 'text'
     },
     // valiCheck() {
     //   this.$emit('vali-two');
@@ -39,12 +42,12 @@ Vue.component('password', {
 new Vue({
   el: '#app',
   data : {
-    aftertype: 'password',
+    currentType: 'password',
   },
   
   methods: {
     passOne() {
-      this.aftertype = 'password'
+      this.currentType = 'text'
     },
   },
 });
