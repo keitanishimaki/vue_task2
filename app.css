@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  line-height: 1.5;
+  background-color: #fcfcfc;
+}
+
+.container {
+  padding: 1rem 2rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.form-group {
+  display: flex;
+}
+
+.form-group .button {
+  flex: 0 0 auto;
+  font-size: 0.875rem;
+}
+
+.form-control {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 0.5em 0.75em;
+  font-size: inherit;
+  font-family: inherit;
+  outline-color: #0e7cf4;
+}
+
+.form-note {
+  padding: 1em;
+  background-color: #f1f1f1;
+}
+
+.button {
+  display: inline-block;
+  background-color: #0e7cf4;
+  border: 1px solid #0962ea;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #fff;
+  padding: 0.5em 0.75em;
+  cursor: pointer;
+}
+
+.form-control:focus,
+.button:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(9, 98, 234, 0.5);
+  border-color: #0e7cf4;
+}
