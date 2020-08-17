@@ -6,7 +6,7 @@ Vue.component('password', {
     <div class="form-group">
       <input
         id="password"
-        :type="currentType === password"
+        :type="currentType"
         class="form-control js-password"
         data-message="note-1"
         data-toggle="button-1"
@@ -41,13 +41,13 @@ Vue.component('password', {
 
 new Vue({
   el: '#app',
-  data : {
-    currentType: 'password',
-  },
+  // data : {
+  //   currentType: 'password',
+  // },
   
-  methods: {
-    passOne() {
-      this.currentType = 'text'
-    },
-  },
+  // methods: {
+  //   passOne() {
+  //     this.currentType = 'text'
+  //   },
+  // },
 });
