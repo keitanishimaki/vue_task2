@@ -31,7 +31,11 @@ Vue.component('password', {
 
   methods: {
     passClick() {
+      if (currentType === 'password') {
+      this.currentType = 'password'
+      } else {
       this.currentType = 'text'
+      }
     },
     // valiCheck() {
     //   this.$emit('vali-two');
