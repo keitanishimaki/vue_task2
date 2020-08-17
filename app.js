@@ -10,48 +10,48 @@ Vue.component('password', {
         class="form-control js-password"
         data-message="note-1"
         data-toggle="button-1"
+        v-model="text"
+        @blur="validate"
       />
       <button class="button" id="button-1" @click="passClick">
         toggle visibillity
       </button>
     </div>
-    <p class="form-note" id="note-1">入力してください</p>
+    <p class="form-note" id="note-1">{{message}}</p>
   </div>
   `,
 
   data: function() {
     return {
-      currentType: 'password'
+      currentType: 'password',
+      text: '',
+      message: '入力してください'
     }
   },
 
-  // props: [
-  //   'currentType',
-  // ],
-
   methods: {
     passClick() {
-      if (currentType === 'password') {
-      this.currentType = 'password'
+      if (this.currentType === 'password') {
+        this.currentType = 'text'
       } else {
-      this.currentType = 'text'
+        this.currentType = 'password'
       }
     },
-    // valiCheck() {
-    //   this.$emit('vali-two');
-    // },
+    validate(val) {
+      const cha = /[a-z]/;
+      const fig = /[0-9]/;
+
+      if(this.text === "") {
+        this.message = '入力してください'
+      } else if (val.length >= 6 && cha.test(val) && fig.test(val)) {
+        this.message = '良いパスワードです'
+      } else {
+        this.message = '弱いパスワードです'
+      }
+    }
   },
 });
 
 new Vue({
   el: '#app',
-  // data : {
-  //   currentType: 'password',
-  // },
-  
-  // methods: {
-  //   passOne() {
-  //     this.currentType = 'text'
-  //   },
-  // },
 });
