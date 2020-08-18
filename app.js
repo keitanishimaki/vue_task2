@@ -37,13 +37,13 @@ Vue.component('password', {
         this.currentType = 'password'
       }
     },
-    validate(val) {
+    validate() {
       const cha = /[a-z]/;
       const fig = /[0-9]/;
 
       if(this.text === "") {
         this.message = '入力してください'
-      } else if (val.length >= 6 && cha.test(val) && fig.test(val)) {
+      } else if (this.text.length >= 6 && cha.test(this.text) && fig.test(this.text)) {
         this.message = '良いパスワードです'
       } else {
         this.message = '弱いパスワードです'
